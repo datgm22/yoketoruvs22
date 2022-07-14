@@ -103,8 +103,9 @@ namespace yoketoruvs22
         {
             Point mp = PointToClient(MousePosition);
 
-            // TODO: mpがラベルの中心になるようにする
-
+            // mpがラベルの中心になるようにする
+            chrs[PlayerIndex].Left = mp.X - chrs[PlayerIndex].Width /2;
+            chrs[PlayerIndex].Top = mp.Y - chrs[PlayerIndex].Height /2;
 
         }
 
