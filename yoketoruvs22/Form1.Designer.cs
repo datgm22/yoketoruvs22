@@ -29,6 +29,7 @@ namespace yoketoruvs22
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.titleLabel = new System.Windows.Forms.Label();
             this.startButton = new System.Windows.Forms.Button();
             this.copyrightLabel = new System.Windows.Forms.Label();
@@ -38,6 +39,7 @@ namespace yoketoruvs22
             this.gameOverLabel = new System.Windows.Forms.Label();
             this.clearLabel = new System.Windows.Forms.Label();
             this.titleButton = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // titleLabel
@@ -60,6 +62,7 @@ namespace yoketoruvs22
             this.startButton.TabIndex = 1;
             this.startButton.Text = "スタート!!";
             this.startButton.UseVisualStyleBackColor = true;
+            this.startButton.Click += new System.EventHandler(this.startButton_Click);
             // 
             // copyrightLabel
             // 
@@ -126,12 +129,18 @@ namespace yoketoruvs22
             // titleButton
             // 
             this.titleButton.Font = new System.Drawing.Font("Yu Gothic UI", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.titleButton.Location = new System.Drawing.Point(202, 220);
+            this.titleButton.Location = new System.Drawing.Point(202, 221);
             this.titleButton.Name = "titleButton";
             this.titleButton.Size = new System.Drawing.Size(221, 75);
             this.titleButton.TabIndex = 8;
             this.titleButton.Text = "タイトルへ";
             this.titleButton.UseVisualStyleBackColor = true;
+            this.titleButton.Click += new System.EventHandler(this.titleButton_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
@@ -166,6 +175,7 @@ namespace yoketoruvs22
         private System.Windows.Forms.Label gameOverLabel;
         private System.Windows.Forms.Label clearLabel;
         private System.Windows.Forms.Button titleButton;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
