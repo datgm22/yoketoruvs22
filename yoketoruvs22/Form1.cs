@@ -198,6 +198,7 @@ namespace yoketoruvs22
 
                     itemCount = ItemMax;
                     time = StartTime + 1;
+                    leftLabel.Text = $"★：{itemCount:00}";
 
                     for (int i = EnemyIndex; i < ChrMax; i++)
                     {
