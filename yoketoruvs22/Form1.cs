@@ -163,6 +163,12 @@ namespace yoketoruvs22
                         }
                     }
                 }
+
+                if (    (time <= 0)
+                    &&  (nextState == State.None))
+                {
+                    nextState = State.Gameover;
+                }
             }
         }
 
