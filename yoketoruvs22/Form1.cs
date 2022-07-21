@@ -26,6 +26,7 @@ namespace yoketoruvs22
         const int PlayerIndex = 0;
         const int EnemyIndex = PlayerIndex + PlayerMax;
         const int ItemIndex = EnemyIndex + EnemyMax;
+        const int StartTime = 100;
 
         const string PlayerText = "(・ω・)";
         const string EnemyText = "◆";
@@ -34,6 +35,7 @@ namespace yoketoruvs22
         static Random rand = new Random();
 
         int itemCount;
+        int time;
 
         enum State
         {
@@ -107,6 +109,9 @@ namespace yoketoruvs22
 
         void UpdateGame()
         {
+            time--;
+            timeLabel.Text = $"Time {time:000}";
+
             Point mp = PointToClient(MousePosition);
 
             // mpがラベルの中心になるようにする
@@ -115,6 +120,8 @@ namespace yoketoruvs22
 
             for (int i=EnemyIndex;i< ChrMax;i++)
             {
+                if (!chrs[i].Visible) continue;
+
                 chrs[i].Left += vx[i];
                 chrs[i].Top += vy[i];
 
@@ -183,6 +190,7 @@ namespace yoketoruvs22
                     hiLabel.Visible = false;
 
                     itemCount = ItemMax;
+                    time = StartTime + 1;
 
                     for (int i = EnemyIndex; i < ChrMax; i++)
                     {
