@@ -33,6 +33,8 @@ namespace yoketoruvs22
 
         static Random rand = new Random();
 
+        int itemCount;
+
         enum State
         {
             None = -1,  // 無効
@@ -138,10 +140,23 @@ namespace yoketoruvs22
                     &&  (mp.Y >= chrs[i].Top)
                     &&  (mp.Y < chrs[i].Bottom)) 
                 {
-                    MessageBox.Show("重なった!!");
+                    // MessageBox.Show("重なった!!");
+                    if (i < ItemIndex)
+                    {
+                        nextState = State.Gameover;
+                    }
+                    else
+                    {
+                        chrs[i].Visible = false;
+                        itemCount--;
+                        leftLabel.Text = $"★：{itemCount:00}";
+                        if (itemCount <= 0)
+                        {
+                            nextState = State.Clear;
+                        }
+                    }
                 }
             }
-
         }
 
         void initProc()
@@ -166,6 +181,8 @@ namespace yoketoruvs22
                     startButton.Visible = false;
                     copyrightLabel.Visible = false;
                     hiLabel.Visible = false;
+
+                    itemCount = ItemMax;
 
                     for (int i = EnemyIndex; i < ChrMax; i++)
                     {
